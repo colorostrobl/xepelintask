@@ -18,6 +18,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('gsheeteditor/', include('GSheetEditor.urls')),
-    path('admin/', admin.site.urls),
     path("", include("django.contrib.auth.urls")),
 ]

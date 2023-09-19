@@ -2,6 +2,7 @@ from __future__ import print_function
 from google.oauth2.credentials import Credentials
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
+import requests
 
 
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
@@ -25,7 +26,6 @@ def reader():
 
 
 def editor(range, value):
-    print('Changing cell ' + range +' to value: ' + value)
     creds = Credentials.from_authorized_user_file('token.json', SCOPES)
 
     try:
@@ -42,8 +42,18 @@ def editor(range, value):
         result = sheet.values().update(
             spreadsheetId=SPREADSHEET_ID, range=range,
             valueInputOption="USER_ENTERED", body=body).execute()
-        print(f"{result.get('updatedCells')} cells updated.")
         return result
     except HttpError as error:
-        print(f"An error occurred: {error}")
         return error
+
+
+def send_email(row):
+    url = 'https://hooks.zapier.com/hooks/catch/6872019/oahrt5g/'
+    data = {
+        'idOp': int(row[0]),
+        'tasa': float(row[1].replace(',', '.')),
+        'email': row[2]
+    }
+
+    response = requests.post(url, data=data)
+    return response

@@ -58,6 +58,18 @@ body{
     align-items: center; /* Vertically center */
 }
 
+.background .error{
+    width: 500px;
+    height: 110px;
+    position: absolute;
+    background-color: transparent;
+    bottom: -130px;
+    left: -34px;
+    display: flex;
+    justify-content: center; /* Horizontally center */
+    align-items: center; /* Vertically center */
+}
+
 .rounded-table {
     border-radius: 0.5rem !important;
     overflow: hidden;
@@ -82,6 +94,9 @@ body{
     </style>
 </head>
 <body>
+<div>
+    <button type="button" class="btn btn-link"><a href="{% url 'logout' %}">Log out</a></button>
+</div>
 <div class="background">
 <div class="shape">
     <h2>GSheet Editor</h2>
@@ -133,6 +148,27 @@ body{
 </div>
 </form>
 </div>
+{% if error %}
+<div class="error">
+<div class="container text-center">
+  <div class="row">
+    <h6>¡Ups! Los valores no tienen la validación correcta</h6>
+  </div>
+    <div class="row">
+    <p>Recuerda ingresar un id y un número válido<br>(decimales con coma)</p>
+  </div>
+</div>
+</div>
+{% endif %}
+{% if success %}
+<div class="error">
+<div class="container text-center">
+  <div class="row">
+    <h6>¡El email ha sido enviado correctamente!</h6>
+  </div>
+</div>
+</div>
+{% endif %}
 </div>
 </body>
 </html>
