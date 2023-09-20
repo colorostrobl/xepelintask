@@ -1,1 +1,1 @@
-web: gunicorn Joaquin_APIs.wsgi
+web: gunicorn Joaquin_APIs.wsgi -t 300
