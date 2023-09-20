@@ -19,4 +19,5 @@ from django.urls import path, include
 urlpatterns = [
     path('gsheeteditor/', include('GSheetEditor.urls')),
     path("", include("django.contrib.auth.urls")),
+    path('webscrapper/', include('webscrapper.urls')),
 ]

@@ -1,7 +1,7 @@
 from django.urls import path
 from . import views
 
-app_name = 'GSheetEditor'
+app_name = 'webscrapper'
 urlpatterns = [
-    path('', views.home, name='home'),
+    path('', views.the_scrapper, name=''),
 ]
