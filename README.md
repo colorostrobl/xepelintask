@@ -1,6 +1,6 @@
 # Xepelin Technical Task :desktop_computer:
 
-Una API creada utilizando Django, la cual tiene 2 apps internas:
+Una API creada utilizando Django 4.1 y Python 3.10.13, la cual tiene 2 apps internas:
 
 ## APIs :pencil:
 
