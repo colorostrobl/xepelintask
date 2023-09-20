@@ -1,24 +1,8 @@
 # Xepelin Technical Task
 
-An API designed using Django, enabling users to seamlessly interact with and edit Google Sheets.
+Una API creada utilizando Django, la cual tiene 2 apps internas:
 
-## Features
+## APIs
 
-- **Authentication:** Secure access to ensure only authorized users can edit.
-- **Sheet Editing:** Easily update cell values, add rows/columns, and more.
-- **Batch Operations:** Update multiple cells or rows at once.
-- **Real-time Sync:** Changes are reflected in real-time to the Google Sheet.
-
-## Getting Started
-
-### Prerequisites
-
-- Python (>= 3.6)
-- pip
-- A Google account and a project set up on the [Google Developers Console](https://console.developers.google.com/).
-
-### Installation
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/Xepelin-Technical-Task.git
+- GSheet Editor: app que permite visualizar una [GSheet](https://docs.google.com/spreadsheets/d/1K7pAu91P8CLyjRk4rD1WuOg8gljC3IKml09SIxtCzww/) y editar los contenidos de esta mediante un form. Puedes encontrar el link al login [aqui](https://joaquin-apis-ed5ad9173cfb.herokuapp.com/login/).
+- WebScrapping: api que recibe post requests y realiza web scrapping del [blog](https://xepelin.com/blog) de Xepelin. Los resultados de este son publicados en una [GSheet](https://docs.google.com/spreadsheets/d/1UlsvCxYmEUKC8aSl5WCd2zphNEUKYmUkxrZMR9Ujd1E/). Puedes ver un pequeño instructivo [aqui](https://joaquin-apis-ed5ad9173cfb.herokuapp.com/webscrapper/).
