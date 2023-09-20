@@ -23,9 +23,8 @@ def home(request):
                     if results[i][0] == id:
                         cell = cells.get(str(i))
                         result = editor(cell, tasa)
-                        print(result)
                         if result['updatedCells'] == 1:
-                            response = send_email(results[i])
+                            response = send_email([results[i][0], tasa, results[i][2]])
                             if response.status_code == 200:
                                 show_success = True
                 results = reader()

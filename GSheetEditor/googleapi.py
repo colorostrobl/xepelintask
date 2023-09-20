@@ -11,6 +11,15 @@ RANGE_NAME = 'A1:C11'
 
 
 def reader():
+    """
+    Esta funcion lee la GSheet
+
+    Parameters:
+    - None.
+
+    Returns:
+    - HttpResponse.
+    """
     creds = Credentials.from_authorized_user_file('token.json', SCOPES)
 
     try:
@@ -26,6 +35,16 @@ def reader():
 
 
 def editor(range, value):
+    """
+    Esta funcion edita una celda en la GSheet
+
+    Parameters:
+    - range (string): celda a editar.
+    - value (int/float) valor que va en la celda.
+
+    Returns:
+    - HttpResponse.
+    """
     creds = Credentials.from_authorized_user_file('token.json', SCOPES)
 
     try:
@@ -48,6 +67,15 @@ def editor(range, value):
 
 
 def send_email(row):
+    """
+    Esta funcion envia el POST request que envia el mail con la informacion
+
+    Parameters:
+    - row (list): lista que representa la fila afectada del GSheet.
+
+    Returns:
+    - HttpResponse.
+    """
     url = 'https://hooks.zapier.com/hooks/catch/6872019/oahrt5g/'
     data = {
         'idOp': int(row[0]),

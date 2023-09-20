@@ -6,6 +6,7 @@ from selenium.webdriver.common.by import By
 import time
 from re import sub
 import os
+from django.conf import settings
 
 
 def get_categories():
@@ -31,7 +32,7 @@ def get_categories():
 
 def scrape(url):
     """
-    Esta funcion obtione el url de cada post en el blog y los visita uno a uno para hacer un scrapping de c/u.
+    Esta funcion obtione el url de una categoria en el blog y visita cada post uno a uno para hacer un scrapping de c/u.
 
     Parameters:
     - url (string): direccion web de la pagina del blog a scrappear.
@@ -44,25 +45,23 @@ def scrape(url):
     chrome_options.add_argument("--disable-gpu")
     chrome_options.add_argument("--no-sandbox")
     chrome_options.add_argument("--disable-dev-shm-usage")
-    chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+    if settings.IS_HEROKU_APP:
+        chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
     driver = webdriver.Chrome(options=chrome_options)
-    driver.implicitly_wait(5)
-    #print('Loading...')
+    driver.implicitly_wait(2)
+    print('Loading...')
     driver.get(url)
 
     search_for_button = True
-    wait = 0
+    wait = 5
     while search_for_button:
-        #print('Now we wait')
         time.sleep(wait)
         buttons = driver.find_elements(By.TAG_NAME, 'button')
-        #print('We have the buttons :)')
         search_for_button = False
         for b in buttons:
-            #print(f"Button: {b.text}")
             if b.text.strip() == 'Cargar más':
                 b.click()
-                #print('CLICK!')
+                print('CLICK! Loading more posts')
                 search_for_button = True
                 time.sleep(wait)
 
@@ -70,10 +69,9 @@ def scrape(url):
     children = parent.find_elements(By.TAG_NAME, 'a')
     urls = [child.get_attribute('href') for child in children]
     results = []
-    driver.quit()
+    print("Count: ")
     for url in urls:
-        #print(url)
-        driver = webdriver.Chrome(options=chrome_options)
+        print(f"{len(results) + 1},", end="")
         driver.get(url)
         title_element = driver.find_element(By.TAG_NAME, 'h1')
         wrapper = driver.find_element(By.CLASS_NAME, 'ArticleSingle_wrapper__Mm4hH')
@@ -88,6 +86,6 @@ def scrape(url):
                    'url': url
                    }
         results.append(content)
-        driver.quit()
+    print(" ")
     driver.quit()
     return results
