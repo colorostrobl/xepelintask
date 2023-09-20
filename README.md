@@ -1,8 +1,8 @@
-# Xepelin Technical Task `:desktop_computer:`
+# Xepelin Technical Task :desktop_computer:
 
 Una API creada utilizando Django, la cual tiene 2 apps internas:
 
-## APIs `:pencil:`
+## APIs :pencil:
 
 - GSheet Editor: app que permite visualizar una [GSheet](https://docs.google.com/spreadsheets/d/1K7pAu91P8CLyjRk4rD1WuOg8gljC3IKml09SIxtCzww/) y editar los contenidos de esta mediante un form. Puedes encontrar el link al login [aqui](https://joaquin-apis-ed5ad9173cfb.herokuapp.com/login/).  
 Las credenciales de prueba son:
@@ -14,7 +14,7 @@ Las credenciales de prueba son:
 
 - WebScrapping: api que recibe post requests y realiza web scrapping del [blog](https://xepelin.com/blog) de Xepelin. Los resultados de este son publicados en una [GSheet](https://docs.google.com/spreadsheets/d/1UlsvCxYmEUKC8aSl5WCd2zphNEUKYmUkxrZMR9Ujd1E/). Puedes ver un pequeño instructivo [aqui](https://joaquin-apis-ed5ad9173cfb.herokuapp.com/webscrapper/).
 
-## Guía de instalación `:nerd_face:`
+## Guía de instalación :nerd_face:
 
 Para simplificar la dependencia de librerias utilizaremos un virtual environment.
 
@@ -71,7 +71,7 @@ Ahora puedes acceder al login desde el siguiente dirección: http://127.0.0.1:80
 También puedes ver 
 intrucciones de como hacer POST request mediante el uso de curl en este url: http://127.0.0.1:8000/webscrapper/.
 
-## Heroku bugs `:space_invader:`
+## Heroku bugs :space_invader:
 
 Como bien se puede apreciar en los links de la sección APIs, la aplicación se encuentra deployed en heroku.  
 En este deployed la [API](https://joaquin-apis-ed5ad9173cfb.herokuapp.com/login/) para ver y editar la GSheet funciona perfectamente. Sin embargo, la API que recibe POST requests
@@ -84,7 +84,7 @@ Por lo que se alcanza el timeout antes de que termine el procesamiento del reque
 El tiempo escala rapidamente también dependiendo de la velocidad de conexión a internet. Esto
 se vuelve evidente sobretodo al intentar scrappear todas las categorías con 'Blog' como keyword.
 
-### Posibles soluciones `:thinking:`
+### Posibles soluciones :thinking:
 
 Para solucionar este problema, se podría considerar hacer un upgrade de los DYNOS de heroku, para lo que hay que pagar :( , lo cual
 habilitaría una mayor cantidad de workers para el procesamiento.  
