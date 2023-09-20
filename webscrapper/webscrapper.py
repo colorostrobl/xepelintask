@@ -70,8 +70,10 @@ def scrape(url):
     children = parent.find_elements(By.TAG_NAME, 'a')
     urls = [child.get_attribute('href') for child in children]
     results = []
+    driver.quit()
     for url in urls:
         print(url)
+        driver = webdriver.Chrome(options=chrome_options)
         driver.get(url)
         title_element = driver.find_element(By.TAG_NAME, 'h1')
         wrapper = driver.find_element(By.CLASS_NAME, 'ArticleSingle_wrapper__Mm4hH')
@@ -86,5 +88,6 @@ def scrape(url):
                    'url': url
                    }
         results.append(content)
+        driver.quit()
     driver.quit()
     return results
