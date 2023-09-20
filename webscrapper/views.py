@@ -22,6 +22,7 @@ def the_scrapper(request):
                 all_contents = []
                 for k in categories.keys():
                     if k != 'blog':
+                        print(f"Scrapping {k}")
                         url = categories[k]
                         content = scrape(url)
                         all_contents += content

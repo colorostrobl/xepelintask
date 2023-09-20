@@ -47,22 +47,22 @@ def scrape(url):
     chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
     driver = webdriver.Chrome(options=chrome_options)
     driver.implicitly_wait(5)
-    print('Loading...')
+    #print('Loading...')
     driver.get(url)
 
     search_for_button = True
-    wait = 1
+    wait = 0
     while search_for_button:
-        print('Now we wait')
+        #print('Now we wait')
         time.sleep(wait)
         buttons = driver.find_elements(By.TAG_NAME, 'button')
-        print('We have the buttons :)')
+        #print('We have the buttons :)')
         search_for_button = False
         for b in buttons:
-            print(f"Button: {b.text}")
+            #print(f"Button: {b.text}")
             if b.text.strip() == 'Cargar más':
                 b.click()
-                print('CLICK!')
+                #print('CLICK!')
                 search_for_button = True
                 time.sleep(wait)
 
@@ -72,7 +72,7 @@ def scrape(url):
     results = []
     driver.quit()
     for url in urls:
-        print(url)
+        #print(url)
         driver = webdriver.Chrome(options=chrome_options)
         driver.get(url)
         title_element = driver.find_element(By.TAG_NAME, 'h1')
