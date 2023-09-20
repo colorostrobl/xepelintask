@@ -59,7 +59,7 @@ cd xepelintask
 5. **Instalar dependencies**
 
 ```bash
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 6. **Runserver de manera local**
