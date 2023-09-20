@@ -51,7 +51,7 @@ def scrape(url):
     driver.get(url)
 
     search_for_button = True
-    wait = 5
+    wait = 2
     while search_for_button:
         print('Now we wait')
         time.sleep(wait)
