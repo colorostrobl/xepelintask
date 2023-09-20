@@ -13,6 +13,7 @@ Las credenciales de prueba son:
 
 
 - WebScrapping: api que recibe post requests y realiza web scrapping del [blog](https://xepelin.com/blog) de Xepelin. Los resultados de este son publicados en una [GSheet](https://docs.google.com/spreadsheets/d/1UlsvCxYmEUKC8aSl5WCd2zphNEUKYmUkxrZMR9Ujd1E/). Puedes ver un pequeño instructivo [aqui](https://joaquin-apis-ed5ad9173cfb.herokuapp.com/webscrapper/).
+  El curl de este instructivo esta pensado para ser ejecutado localmente. Para eso seguir la siguiente guía:
 
 ## Guía de instalación :nerd_face:
 
