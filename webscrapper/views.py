@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseServerError
 from django.views.decorators.csrf import csrf_exempt
 import json
 from django.shortcuts import render
@@ -30,7 +30,9 @@ def the_scrapper(request):
                 content = scrape(categories[category])
                 response = populate_gsheet(content)
             webhook = data.get('webhook')
-            webhook_response(webhook)
+            webhook_respone = webhook_response(webhook)
+            if webhook_respone.status_code != 200:
+                return HttpResponseServerError('Connection to webhook failed')
             return HttpResponse('Puedes revisar tu GSheet aquí: https://docs.google.com/spreadsheets/d/1UlsvCxYmEUKC8aSl5WCd2zphNEUKYmUkxrZMR9Ujd1E ')
         else:
             return HttpResponse(f"Esta categoría no esta dentro de las categorías posibles: {', '.join(categories.keys())}", status=400)

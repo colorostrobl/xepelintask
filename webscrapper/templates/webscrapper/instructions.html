@@ -10,8 +10,8 @@
     background-color: #edf4ff;
 }
     .background{
-        width: 550px;
-        height: 460px;
+        width: 750px;
+        height: 380px;
         position: absolute;
         transform: translate(-50%,-50%);
         left: 50%;
@@ -27,7 +27,7 @@
     position: absolute;
     background-color: rgba(29,40,86,255);
     top: -130px;
-    left: 60px;
+    left: 160px;
     border-radius: 10px;
     border: 2px solid rgba(255,255,255,0.1);
     display: flex;
@@ -42,7 +42,7 @@
 <div class="background">
     <div class="shape"><h2>Instrucciones</h2></div>
     <div>
-        <h4>Ejemplo:<br>curl -X POST -H "Content-Type: application/json" -d '{"category":"Emprendedores", "webhook":"algun-url"}' https://joaquin-apis-ed5ad9173cfb.herokuapp.com/webscrapper/</h4>
+        <h4>Ejemplo:<br>curl -X POST -H "Content-Type: application/json" -d '{"category":"Xepelin", "webhook": "https://hooks.zapier.com/hooks/catch/11217441/bfemddr"}' http://127.0.0.1:8000/webscrapper/</h4>
     </div>
 <div class="pt-3">
     <h4>Valores posibles para category: {{ categories }}</h4>
