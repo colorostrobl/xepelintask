@@ -67,7 +67,7 @@ pip3 install -r requirements.txt
 python3 manage.py runserver
 ```
 
-7. :tada:**¡El servidor ya esta corriendo de manera local!**:tada:  
+7. :tada: **¡El servidor ya esta corriendo de manera local!** :tada:  
 Ahora puedes acceder al login desde el siguiente dirección: http://127.0.0.1:8000/login/.  
 También puedes ver 
 intrucciones de como hacer POST request mediante el uso de curl en este url: http://127.0.0.1:8000/webscrapper/.
